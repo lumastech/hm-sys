@@ -48,7 +48,6 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 sans: [
                     "Inter",
                     "ui-sans-serif",
