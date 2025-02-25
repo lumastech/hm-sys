@@ -107,6 +107,18 @@
             </div>
             <span class="flex-auto">Settings</span>
             </Link>
+
+            <div class="flex mt-4 mb-2">
+                <h1 class="font-bold flex-auto">Website</h1>
+                <i class="fa fa-plus self-center"></i>
+            </div>
+
+            <Link href="/" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <div class="w-9">
+                <i class="fa fa-globe text-xl mr-4 text-primary-900 drop-shadow-md"></i>
+            </div>
+            <span class="flex-auto">Home</span>
+            </Link>
         </div>
     </nav>
 </template>
