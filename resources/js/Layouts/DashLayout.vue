@@ -6,7 +6,7 @@ import Sidebar from '@/Components/Sidebar.vue';
 <template>
     <div class="fixed flex h-full w-full bg-primary-100">
         <nav class="w-60">
-            <div class="navbar p-2 h-16 border-b border-primary-50"></div>
+            
             <Sidebar />
         </nav>
         <main class="flex-auto">
