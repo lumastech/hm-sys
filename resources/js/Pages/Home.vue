@@ -12,8 +12,8 @@
                 <Link href="/">EDUCATION</Link>
                 <Link href="/">NEWS</Link>
                 <Link href="/">EVENTS</Link>
-                <Link href="/">LOGIN</Link>
-                <Link href="/">REGISTER</Link>
+                <Link href="/login">LOGIN</Link>
+                <Link href="/register">REGISTER</Link>
             </div>
         </nav>
         <div class="hero ">
