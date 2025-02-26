@@ -112,6 +112,10 @@ export default {
             minWidth: {
                 kanban: "28rem",
             },
+            spacing: {
+                130: "38rem",
+                98: "28rem",
+            },
         },
     },
 

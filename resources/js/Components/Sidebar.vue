@@ -1,5 +1,5 @@
 <template>
-    <nav class="w-60">
+    <nav class="w-60 overflow-x-auto">
         <div class="navbar flex p-2 border-b border-primary-50">
             <div class="rounded-full w-40 h-10 bg-secondary-200 border-2 border-primary-300"></div>
         </div>

@@ -16,8 +16,15 @@
                 <Link href="/register">REGISTER</Link>
             </div>
         </nav>
-        <div class="hero ">
-
+        <div class="hero h-130 bg-primary-50 flex">
+            <div class="self-center px-2 md:px-16">
+                <h1 class="text-2xl md:text-4xl">WELCOMETO SMART COOP HUB</h1>
+                <h2 class="text-xl md:text-2xl my-4">THE SMART BUSINESS NETWORK</h2>
+                <p class="font-bold max-w-md mb-4">The SCH system is poised to revolutionize collaboration,
+                    transparency, and support for SMEs, cooperatives,
+                    and supplier diversity</p>
+                <Link href="/register" class="text-white bg-primary-500 rounded-md py-2 px-8 hover:bg-primary-600 mt-4 transition-all" >JOIN US NOW</Link>
+            </div>
         </div>
     </header>
 
