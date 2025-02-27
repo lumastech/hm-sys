@@ -150,7 +150,7 @@
             <div class="filter bg-primary-50/50">
                 <div class="container mx-auto py-16 md:py-32 px-4 text-secondary-500">
                     <h2 class="my-7 text-primary-800 text-2xl">OUR FEATURED PRODUCTS</h2>
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid md:grid-cols-4 gap-4">
                         <Link v-for="index in 16" :key="index" href="/" class="bg-white shadow-sm rounded overflow-hidden hover:bg-primary-50 hover:shadow-xl transition">
                             <img src="../../assets/images/img_1.png" alt="" class="aspect-video w-fill">
                             <div class="p-2 ">
