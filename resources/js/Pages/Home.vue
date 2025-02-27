@@ -1,104 +1,266 @@
 <template>
 
     <Head title="Home" />
-    <header class="container mx-auto">
-        <nav class="flex px-4">
-            <Link href="/" class="py-2 text-primary-500">SCH</Link>
-            <div class="flex-auto"></div>
-            <div class="hidden md:flex space-x-4 py-2 text-primary-500">
-                <Link href="/">HOME</Link>
-                <Link href="/">ABOUT</Link>
-                <Link href="/">EMARKET</Link>
-                <Link href="/">EDUCATION</Link>
-                <Link href="/">NEWS</Link>
-                <Link href="/">EVENTS</Link>
-                <Link href="/login">LOGIN</Link>
-                <Link href="/register">REGISTER</Link>
+    <header class="">
+        <nav>
+            <div class="container mx-auto flex px-4">
+                <Link href="/" class="py-2 text-primary-500">
+                <img src="../../assets/images/logo.png" alt="Sch" class="h-10">
+                </Link>
+                <div class="flex-auto"></div>
+                <div class="hidden self-center md:flex space-x-4 py-2 text-primary-500">
+                    <Link href="/">HOME</Link>
+                    <Link href="/">ABOUT</Link>
+                    <Link href="/">EMARKET</Link>
+                    <Link href="/">EDUCATION</Link>
+                    <Link href="/">NEWS</Link>
+                    <Link href="/">EVENTS</Link>
+                    <Link href="/login">LOGIN</Link>
+                    <Link href="/register">REGISTER</Link>
+                </div>
+
             </div>
         </nav>
-        <div class="hero h-130 bg-primary-50 flex">
-            <div class="self-center px-2 md:px-16">
-                <h1 class="text-2xl md:text-4xl">WELCOMETO SMART COOP HUB</h1>
-                <h2 class="text-xl md:text-2xl my-4">THE SMART BUSINESS NETWORK</h2>
-                <p class="font-bold max-w-md mb-4">The SCH system is poised to revolutionize collaboration,
-                    transparency, and support for SMEs, cooperatives,
-                    and supplier diversity</p>
-                <Link href="/register" class="text-white bg-primary-500 rounded-md py-2 px-8 hover:bg-primary-600 mt-4 transition-all" >JOIN US NOW</Link>
+        <div class="hero">
+            <div class="filter bg-gradient-to-r from-primary-50/80">
+                <div class="container mx-auto h-96 md:h-130 flex ">
+                    <div class="self-center px-2 md:px-16 text-primary-900 text-center md:text-left">
+                        <h1 class="text-xl md:text-4xl font-bold">WELCOMETO SMART COOP HUB</h1>
+                        <h2 class="md:text-2xl my-4 font-bold">THE SMART BUSINESS NETWORK</h2>
+                        <p class="font-bold max-w-md mb-4">The SCH system is poised to revolutionize collaboration,
+                            transparency, and support for SMEs, cooperatives,
+                            and supplier diversity</p>
+                        <Link href="/register"
+                            class="text-white bg-primary-500 rounded-md py-3 inline-block px-8 hover:bg-primary-600 mt-4 transition-all">
+                        JOIN US NOW</Link>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
+    <div class="main">
+        <section>
+            <div class="filter py-32">
+                <div class="container mx-auto text-secondary-500">
+                    <h2></h2>
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div>
+                            <img src="../../assets/images/ico_1.png" alt="" class="mx-auto w-32 h-24">
+                            <h3 class="text-xl font-bold text-primary-400 my-4">Financial Literacy</h3>
+                            <p>We Equip cooperatives, SMEs, and other members with essential financial education
+                                resources to enhance their financial literacy, decision-making, and economic
+                                sustainability.</p>
+                        </div>
 
-    <div id="default-carousel" class="relative w-full" data-carousel="slide">
-        <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-1.svg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <div>
+                            <img src="../../assets/images/ico_2.png" alt="" class="mx-auto w-32 h-24">
+                            <h3 class="text-xl font-bold text-primary-400 my-4">Supplier Diversity</h3>
+                            <p> We Promote supplier diversity by providing a platform for SMEs to connect with
+                                organizations, institutions, and agencies looking to engage with a diverse range of
+                                suppliers.</p>
+                        </div>
+
+                        <div>
+                            <img src="../../assets/images/ico_3.png" alt="" class="mx-auto w-32 h-24">
+                            <h3 class="text-xl font-bold text-primary-400 my-4">COLLABORATION</h3>
+                            <p>Facilitate seamless collaboration and communication among internal stakeholders,
+                                enabling collective efforts to promote SME growth.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-2.svg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </section>
+
+        <section>
+            <div class="filter  bg-primary-50/50 py-16 md:py-32 px-4">
+                <div class="container mx-auto">
+                    <div class="md:flex md:space-x-4">
+                        <img src="../../assets/images/ico_2.png" alt="" class="self-center">
+                        <div class="flext-auto self-center">
+                            <h2 class="text-2xl md:text-4xl text-primary-800 mb-4">About us</h2>
+                            <p class="text-secondary-500">The Smart Coop Hub (SCH) system is an innovative and
+                                integrated digital platform designed
+                                to foster collaboration, transparency, and economic growth within the Small and
+                                Medium-sized Enterprises (SME) and supplier diversity ecosystem. This cloud-based
+                                platform serves as a dynamic hub, connecting stakeholders at various levels, from
+                                national to individual businesses. The primary goal is to empower SMEs, support supplier
+                                diversity, and drive economic development through an array of valuable features.</p>
+                            <Link href="/register"
+                                class="text-primary-500 hover:text-white border-2 border-primary-400 rounded-md py-3 inline-block px-8 hover:bg-primary-300 mt-7 transition-all">
+                            Read More</Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-3.svg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </section>
+
+
+        <section>
+            <div class="filter ">
+                <div class="container mx-auto py-16 md:py-32 px-4">
+                    <h2 class="my-7 text-primary-800 text-2xl">OUR FEATURED BUSINESSES</h2>
+                    <div class="md:flex md:space-x-4">
+                        <div class="flex-auto">
+                            <Link v-for="i in 6"
+                                class="md:flex block md:space-x-4 bg-gradient-to-t md:bg-gradient-to-l from-primary-50 rounded-md overflow-hidden shadow-sm transition-all hover:bg-primary-50 hover:shadow-md mb-4">
+                            <img src="../../assets/images/img_1.png" alt="" class="md:w-32 rounded-md">
+                            <div class="flex-auto p-2">
+                                <div class="flex">
+                                    <h4 class="flex-auto text-xl text-primary-800">Bussness Name</h4>
+                                    <div>
+                                        <span
+                                            class="bg-primary-100 px-2 rounded-md text-primary-800 text-sm">Public</span>
+                                    </div>
+                                </div>
+                                <p class="text-secondary-500">Some announcement description here. this will contain
+                                    the details of the
+                                    announcement.</p>
+                                <div class="text-secondary-500">
+                                    <span>0971234567</span> | <span>company@mail.com</span>
+                                </div>
+                                <!-- <Link href="#"
+                                        class="text-primary-500 border border-primary-500 rounded-md px-2 py-1 mt-4 inline-block hover:bg-primary-50 transition">
+                                    View
+                                    Details</Link> -->
+                            </div>
+                            </Link>
+                            <Link href="/register"
+                                class="text-white bg-primary-500 rounded-md py-3 inline-block px-8 hover:bg-primary-600 mt-4 transition-all">
+                            VIEW ALL</Link>
+                        </div>
+
+                        <hr class="my-10 md:hidden">
+                        <div class="md:w-1/4 ">
+                            <h2 class="text-xl text-primary-800 ">Business Listing</h2>
+                            <p class="text-secondary-500">
+                                We allow SMEs to showcase their businesses, making it easier for potential partners and
+                                clients to find them.</p>
+                            <h2 class="text-xl text-primary-800 mt-4">Business Networking</h2>
+                            <p class="text-secondary-500">We provide a platform for SMEs to connect, build
+                                relationships, and explore potential
+                                collaborations.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-4.svg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </section>
+
+        <section>
+            <div class="filter bg-primary-50/50">
+                <div class="container mx-auto py-16 md:py-32 px-4 text-secondary-500">
+                    <h2 class="my-7 text-primary-800 text-2xl">OUR FEATURED PRODUCTS</h2>
+                    <div class="grid grid-cols-4 gap-4">
+                        <Link v-for="index in 16" :key="index" href="/" class="bg-white shadow-sm rounded overflow-hidden hover:bg-primary-50 hover:shadow-xl transition">
+                            <img src="../../assets/images/img_1.png" alt="" class="aspect-video w-fill">
+                            <div class="p-2 ">
+                                <div class="flex my-2">
+                                    <h4 class="flex-auto font-bold">Product Name</h4>
+                                    <div>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>This is a product or service descriptions
+                                    designed to foster collaboration,
+                                    transparency, and economic growth</p>
+                                <p class="text-primary-800 text-2xl font-bold">ZMW {{ Math.round((Math.random()) * 1000.0) }}</p>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
             </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-5.svg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </section>
+
+        <section>
+            <div class="filter ">
+                <div class="container mx-auto py-16 md:py-32 px-4">
+                    <h2 class="my-7 text-primary-800 text-2xl">OUR RECENT PUBLICATIONS</h2>
+                    <div class="md:flex md:space-x-4">
+                        <div class="flex-auto">
+                            <Link v-for="i in 5"
+                                class="md:flex block md:space-x-4 bg-gradient-to-t md:bg-gradient-to-l from-primary-50 rounded-md overflow-hidden shadow-sm transition-all hover:bg-primary-50 hover:shadow-md mb-4">
+                            <img src="../../assets/images/img_1.png" alt="" class="md:w-32 rounded-md">
+                            <div class="flex-auto p-2">
+                                <div class="flex">
+                                    <h4 class="flex-auto text-xl text-primary-800">Bussness Name</h4>
+                                    <div>
+                                        <span
+                                            class="bg-primary-100 px-2 rounded-md text-primary-800 text-sm">Public</span>
+                                    </div>
+                                </div>
+                                <p class="text-secondary-500">Some announcement description here. this will contain
+                                    the details of the
+                                    announcement.</p>
+                                <div class="text-secondary-500">
+                                    <span>0971234567</span> | <span>company@mail.com</span>
+                                </div>
+                                <!-- <Link href="#"
+                                        class="text-primary-500 border border-primary-500 rounded-md px-2 py-1 mt-4 inline-block hover:bg-primary-50 transition">
+                                    View
+                                    Details</Link> -->
+                            </div>
+                            </Link>
+                            <Link href="/register"
+                                class="text-white bg-primary-500 rounded-md py-3 inline-block px-8 hover:bg-primary-600 mt-4 transition-all">
+                            VIEW ALL</Link>
+                        </div>
+
+                        <hr class="my-10 md:hidden">
+                        <div class="md:w-1/4 ">
+                            <img src="../../assets/images/img_1.png" alt="" class="aspect-video w-full">
+                            <h2 class="text-xl text-primary-800 my-4">The High Stakes of Tech Marketing and the ‘Green
+                                Lantern’ Conundrum</h2>
+                            <p class="text-secondary-500">
+                                Last week, I attended the HP Amplify Partner Conference along with the CEOs of AMD,
+                                Google, Intel, Nvidia, and Qualcomm. Each of these CEOs praised HP’s effort, but Jensen
+                                Huang stood out because he actively pitched HP’s new workstation and PC lines, which he
+                                had encouraged HP to build.
+                            </p>
+                            <p class="text-secondary-500">
+                                One of the common discussions was why Dell was getting so much credit, given that it
+                                doesn’t have an AI solution and significantly lagged HP in security, partners,
+                                sustainability, and AI.
+                            </p>
+                            <p class="text-secondary-500">
+                                At the end of the event, one of my favorite actors, Ryan Reynolds, joined virtually.
+                                Reynolds was on a shoot, but his partner was on stage and brought up the “Green Lantern”
+                                <Link href="/" class="text-primary-500">… Read more</Link>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- Slider indicators -->
-        <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                data-carousel-slide-to="2"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                data-carousel-slide-to="3"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                data-carousel-slide-to="4"></button>
-        </div>
-        <!-- Slider controls -->
-        <button type="button"
-            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev>
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 1 1 5l4 4" />
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button"
-            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next>
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 9 4-4-4-4" />
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
+        </section>
+
+        <section>
+            <div class="filter ">
+                <div class="container max-w-auto">
+                    <h2></h2>
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="filter ">
+                <div class="container max-w-auto">
+                    <h2></h2>
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="filter ">
+                <div class="container max-w-auto">
+                    <h2></h2>
+
+                </div>
+            </div>
+        </section>
     </div>
+
 
 </template>
 
@@ -114,5 +276,7 @@ onMounted(() => {
 </script>
 
 <style >
-
+.hero{
+    background-image: url('../../assets/images/bg_1.png');
+}
 </style>
