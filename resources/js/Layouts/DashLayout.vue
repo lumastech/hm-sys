@@ -12,7 +12,7 @@ import Sidebar from '@/Components/Sidebar.vue';
                 <div class="navbar p-2 h-16 border-primary-50">
                     <Navbar />
                 </div>
-                <div class="main h-full bg-white md:rounded-tl-2xl p-4 overflow-x-auto pb-24">
+                <div class="main h-full bg-white md:rounded-tl-2xl p-4 overflow-x-auto pb-24 text-secondary-500">
                     <slot />
                 </div>
             </main>
