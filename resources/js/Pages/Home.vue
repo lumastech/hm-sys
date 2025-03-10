@@ -151,22 +151,24 @@
                 <div class="container mx-auto py-16 md:py-32 px-4 text-secondary-500">
                     <h2 class="my-7 text-primary-800 text-2xl">OUR FEATURED PRODUCTS</h2>
                     <div class="grid md:grid-cols-4 gap-4">
-                        <Link v-for="index in 16" :key="index" href="/" class="bg-white shadow-sm rounded overflow-hidden hover:bg-primary-50 hover:shadow-xl transition">
-                            <img src="../../assets/images/img_1.png" alt="" class="aspect-video w-fill">
-                            <div class="p-2 ">
-                                <div class="flex my-2">
-                                    <h4 class="flex-auto font-bold">Product Name</h4>
-                                    <div>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
+                        <Link v-for="index in 16" :key="index" href="/"
+                            class="bg-white shadow-sm rounded overflow-hidden hover:bg-primary-50 hover:shadow-xl transition">
+                        <img src="../../assets/images/img_1.png" alt="" class="aspect-video w-fill">
+                        <div class="p-2 ">
+                            <div class="flex my-2">
+                                <h4 class="flex-auto font-bold">Product Name</h4>
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
                                 </div>
-                                <p>This is a product or service descriptions
-                                    designed to foster collaboration,
-                                    transparency, and economic growth</p>
-                                <p class="text-primary-800 text-2xl font-bold">ZMW {{ Math.round((Math.random()) * 1000.0) }}</p>
                             </div>
+                            <p>This is a product or service descriptions
+                                designed to foster collaboration,
+                                transparency, and economic growth</p>
+                            <p class="text-primary-800 text-2xl font-bold">ZMW {{ Math.round((Math.random()) * 1000.0)
+                                }}</p>
+                        </div>
                         </Link>
                     </div>
                 </div>
@@ -235,10 +237,23 @@
         </section>
 
         <section>
-            <div class="filter ">
-                <div class="container max-w-auto">
-                    <h2></h2>
+            <div class="filter bg-gradient-to-r from-[#F3DEF9] to-primary-50">
+                <div class="container max-w-auto p-4">
+                    <div class="md:flex  text-secondary-500">
+                        <img src="../../assets/images/char_1.png" alt="">
+                        <div class="md:flex-auto self-center">
+                            <h2 class="text-2xl md:text-7xl">Have a question?
+                                Our team is always ready
+                                to assist you.</h2>
+                            <p class="mt-4">We formulate strategies that define the brands of our
+                                partners pushing the
+                                boundaries of
+                                business experience.</p>
 
+                            <button class="bg-primary px-8 py-2 rounded">CONTACT US</button>
+                            <span>OR CALL +260 97 1864421</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -251,14 +266,40 @@
             </div>
         </section>
 
-        <section>
-            <div class="filter ">
-                <div class="container max-w-auto">
-                    <h2></h2>
+        <footer>
+            <div class="filter bg-primary-500">
+                <div class="container mx-auto text-secondary-50 py-32">
+                    <div class="grid grid-cols-4 gap-4">
+                        <img src="../../assets/images/logo.png" alt="">
+                        <div>
+                            <p>Quick Links</p>
+                            <Link href="#" class="block hover:bg-primary-600 px-2 transition">About us</Link>
+                            <Link href="#" class="block hover:bg-primary-600 px-2 transition">Browse our plans</Link>
+                            <Link href="#" class="block hover:bg-primary-600 px-2 transition">See Example building plans
+                            </Link>
+                        </div>
 
+                        <div>
+                            <p>POLICIES</p>
+                            <Link href="#" class="block hover:bg-primary-600 px-2 transition">Terms & Conditions</Link>
+                            <Link href="#" class="block hover:bg-primary-600 px-2 transition">Privacy Policy</Link>
+                            <Link href="#" class="block hover:bg-primary-600 px-2 transition">Refund Policy</Link>
+                        </div>
+
+                        <div>
+                            <p>Address</p>
+                            <p>+260 97 9729 858</p>
+                            <p>support@mfumu.com</p>
+                            <Link href="#">
+                            </Link>
+                        </div>
+                    </div>
+                    <div class="my-24 border-t border-primary-300 pt-4 text-center">
+                        <p class="text-secondary-200">(C) 2024 schub.com all rights reserved.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </footer>
     </div>
 
 

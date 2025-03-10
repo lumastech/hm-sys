@@ -127,6 +127,10 @@
     "file": "assets/bg_1-9v8_Z5je.png",
     "src": "resources/assets/images/bg_1.png"
   },
+  "resources/assets/images/char_1.png": {
+    "file": "assets/char_1-DEw7BoGX.png",
+    "src": "resources/assets/images/char_1.png"
+  },
   "resources/assets/images/ico_1.png": {
     "file": "assets/ico_1-v1in1n8E.png",
     "src": "resources/assets/images/ico_1.png"
@@ -327,6 +331,7 @@
       "assets/ico_2-D_Uglx5h.png",
       "assets/ico_3-Cgp9Sob_.png",
       "assets/img_1-Dm7V-YtK.png",
+      "assets/char_1-DEw7BoGX.png",
       "assets/bg_1-9v8_Z5je.png"
     ]
   },
