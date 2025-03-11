@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('anouncements', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('title');
+            $table->text('description');
+            $table->string('image');
+            $table->string('importance');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('status');
             $table->timestamps();
         });
     }

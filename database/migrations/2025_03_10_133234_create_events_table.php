@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+             $table->foreignId('user_id')->constrained();
+            $table->foreignId('business_id')->constrained();
+            $table->string('category');
+            $table->string('access');
+            $table->string('title');
+            $table->text('description');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->decimal('price', 8, 2)->default(0);
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('forums', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('business_id')->constrained();
+            $table->string('type');
+            $table->string('category');
+            $table->string('title');
+            $table->text('description');
+            $table->string('image');
+            $table->string('status');
             $table->timestamps();
         });
     }

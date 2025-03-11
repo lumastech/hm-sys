@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Connection extends Model
 {
     protected $fillable = [
-        'user_id', 'follow_id_status'
+        'user_id', 'follow_id','status'
     ];
 
     public function user()

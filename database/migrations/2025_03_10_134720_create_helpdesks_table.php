@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('helpdesks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('attended_by')->constrained('users');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('name');
+            $table->string('subject');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

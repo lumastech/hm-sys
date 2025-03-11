@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('connections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('follow_id_status');
+            $table->foreignId('follow_id');
+            $table->string('status');
             $table->timestamps();
         });
     }
