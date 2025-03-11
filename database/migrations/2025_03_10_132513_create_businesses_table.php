@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('contact_id')->constrained('contacts');
+            $table->foreignId('contact_id');
             $table->string('name');
             $table->string('type');
             $table->string('category');
             $table->string('subcategory');
             $table->text('description');
             $table->string('logo');
-            $table->foreignId('image')->constrained('images');
+            $table->foreignId('image');
             $table->string('status');
             $table->timestamps();
         });
