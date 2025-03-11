@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('type')->default('user');
             $table->date('dob')->nullable();
             $table->string('bio')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->nullable()->default('active');
             $table->rememberToken()->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

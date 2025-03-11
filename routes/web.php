@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return Inertia::render('Home', [
@@ -21,4 +22,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::resource('users', UserController::class);
+    Route::get('users/{filter}', [UserController::class, 'index']);
+
+    // Route::resource('image', ImageController::class);
+    // Route::resource('file', FileController::class);
+    // Route::resource('fav', FavoriteController::class);
+    // Route::resource('like', LikeController::class);
 });

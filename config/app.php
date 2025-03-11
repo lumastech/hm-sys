@@ -14,6 +14,10 @@ return [
     */
 
     'name' => env('APP_NAME', 'SCH'),
+//     'providers' => [
+//     // Other service providers...
+//     \App\Providers\FortifyServiceProvider::class,
+// ],
 
     /*
     |--------------------------------------------------------------------------

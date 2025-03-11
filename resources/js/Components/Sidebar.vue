@@ -1,7 +1,7 @@
 <template>
     <nav class="w-60 overflow-x-auto">
         <div class="navbar flex p-2 border-b border-primary-50">
-            <div class="rounded-full w-40 h-10 bg-secondary-200 border-2 border-primary-300"></div>
+            <img src="../../assets/images/logo.png" alt="sch" class="h-12">
         </div>
         <div class="nav p-4 text-secondary-800">
             <div class="flex mt-4 mb-2">
