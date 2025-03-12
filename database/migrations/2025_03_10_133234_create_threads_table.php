@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('forum_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->text('message');
-            $table->string('image');
-            $table->string('video');
-            $table->string('file');
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
+            $table->string('file')->nullable();
             $table->string('status');
             $table->timestamps();
         });

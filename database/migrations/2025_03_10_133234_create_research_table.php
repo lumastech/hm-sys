@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('business_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->string('category');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->string('visibility');
             $table->string('status');

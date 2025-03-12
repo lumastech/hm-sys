@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AnnouncementController;
 
 Route::get('/', function () {
     return Inertia::render('Home', [
@@ -25,6 +26,9 @@ Route::middleware([
 
     Route::resource('users', UserController::class);
     Route::get('users/{filter}', [UserController::class, 'index']);
+
+    // Announcements
+    Route::resource('announcements', AnnouncementController::class);
 
     // Route::resource('image', ImageController::class);
     // Route::resource('file', FileController::class);

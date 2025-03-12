@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id');
             $table->foreignId('contact_id');
             $table->string('name');
             $table->string('type');
             $table->string('category');
             $table->string('subcategory');
             $table->text('description');
-            $table->string('logo');
-            $table->foreignId('image');
+            $table->string('logo')->nullable();
+            $table->foreignId('image')->nullable();
             $table->string('status');
             $table->timestamps();
         });

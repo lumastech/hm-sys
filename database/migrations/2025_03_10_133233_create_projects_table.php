@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('business_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('business_id');
+            $table->foreignId('user_id');
             $table->string('category');
             $table->string('image');
             $table->text('description');

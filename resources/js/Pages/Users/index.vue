@@ -155,7 +155,7 @@ onMounted(() => {
 })
 import { ref, watch } from 'vue';
 import { router, Head, Link } from '@inertiajs/vue3';
-import Pagination from '@/Components/Pagination.vue'; // Assuming you have a Pagination component
+import Pagination from '@/Components/Pagination.vue'; 
 import DashLayout from '@/Layouts/DashLayout.vue';
 
 const props = defineProps({

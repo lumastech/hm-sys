@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->date('start_date');
+            $table->string('image')->nullable();
             $table->date('end_date');
             $table->decimal('price', 8, 2)->default(0);
             $table->string('status');
