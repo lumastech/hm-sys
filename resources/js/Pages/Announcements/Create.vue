@@ -1,95 +1,78 @@
 <template>
-    <form @submit.prevent="submitForm">
-        <div id="create-announcement" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
-                <!-- Modal content -->
-                <div class="relativeh bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                    <!-- Modal header -->
-                    <div
-                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Create Announcement
-                        </h3>
-                        <button type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-hide="create-announcement">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
+    <DialogModal :show="props.show" :closeable="true" @close="props.show = false">
+        <template #title>
+            <h1>New Announcement</h1>
+        </template>
+        <template #content>
+            <div class="p-4 md:p-5 space-y-4">
+                <form @submit.prevent="submitForm">
+                    <div class="mb-4">
+                        <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                        <input v-model="form.title" type="text" id="title"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
                     </div>
-                    <!-- Modal body -->
-                    <div class="p-4 md:p-5 space-y-4">
-
-                        <div class="mb-4">
-                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                            <input v-model="form.title" type="text" id="title"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
-                        </div>
-                        <div class="mb-4">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                            <textarea v-model="form.description" id="description"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
-                            <input type="file" id="image" @change="handleImageUpload" class="mt-1 block w-full" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="importance" class="block text-sm font-medium text-gray-700">Importance</label>
-                            <select v-model="form.importance" id="importance"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-                                <option value="high">High</option>
-                                <option value="medium">Medium</option>
-                                <option value="low">Low</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label for="start_date" class="block text-sm font-medium text-gray-700">Start Date</label>
-                            <input v-model="form.start_date" type="date" id="start_date"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
-                        </div>
-                        <div class="mb-4">
-                            <label for="end_date" class="block text-sm font-medium text-gray-700">End Date</label>
-                            <input v-model="form.end_date" type="date" id="end_date"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
-                        </div>
-                        <div class="mb-4">
-                            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                            <select v-model="form.status" id="status"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>
-                            </select>
-                        </div>
-
+                    <div class="mb-4">
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea v-model="form.description" id="description"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required></textarea>
                     </div>
-                    <!-- Modal footer -->
-                    <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        <div class="flex justify-end">
-                            <button data-modal-hide="create-announcement" type="button"
-                                class="py-2.5 px-5  text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
-                            <button type="submit" data-modal-hide="create-announcement"
-                                class="px-4 py-2 ms-3 bg-primary-600 text-white rounded-md hover:bg-primary-700">
-                                <i class="fa fa-plus "></i> Create Announcement
-                            </button>
-                        </div>
+                    <div class="mb-4">
+                        <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+                        <input type="file" id="image" @change="handleImageUpload" class="mt-1 block w-full" />
                     </div>
-                </div>
+                    <div class="mb-4">
+                        <label for="importance" class="block text-sm font-medium text-gray-700">Importance</label>
+                        <select v-model="form.importance" id="importance"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="start_date" class="block text-sm font-medium text-gray-700">Start Date</label>
+                        <input v-model="form.start_date" type="date" id="start_date"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="end_date" class="block text-sm font-medium text-gray-700">End Date</label>
+                        <input v-model="form.end_date" type="date" id="end_date"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                        <select v-model="form.status" id="status"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
             </div>
-        </div>
-    </form>
+        </template>
+        <template #footer>
+            <button @click="$emit('close')"
+                class="py-2.5 px-5  text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>
+            <button @click="submitForm"
+                class="px-4 py-2 ms-3 bg-primary-600 text-white rounded-md hover:bg-primary-700">
+                <i class="fa fa-plus "></i> Submit
+            </button>
+        </template>
+    </DialogModal>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { router } from '@inertiajs/vue3';
+import { router, useForm } from '@inertiajs/vue3';
+import DialogModal from '@/Components/DialogModal.vue';
 
-const form = ref({
+const props = defineProps({
+    show: Boolean,
+});
+
+const emit = defineEmits(['close']);
+
+const form = useForm({
     title: '',
     description: '',
     image: null,
@@ -104,8 +87,29 @@ const handleImageUpload = (event) => {
 };
 
 const submitForm = () => {
-    router.post('/announcements', form.value, {
-        forceFormData: true,
+    form.post('/announcements', {
+        onSuccess: () => {
+            props.show = false;
+            // reset Form
+            form.reset();
+            emit('close');
+        },
     });
+    // router.post('/announcements', form.value, {
+    //     forceFormData: true,
+    // }, {
+    //     onSuccess: () => {
+    //         // props.show = false;
+    //         // reset Form
+    //         form.value.title = '';
+    //         form.value.description = '';
+    //         form.value.image = null;
+    //         form.value.importance = 'medium';
+    //         form.value.start_date = '';
+    //         form.value.end_date = '';
+    //         form.value.status = 'active';
+
+    //     },
+    // });
 };
 </script>

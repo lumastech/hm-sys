@@ -58,7 +58,7 @@
                     </div>
                     <div class="self-center space-x-2">
                         <!-- Modal toggle -->
-                        <button data-modal-target="create-announcement" data-modal-toggle="create-announcement"
+                        <button @click="createModal = true"
                             class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                             type="button">
                             <i class="fa fa-plus"></i> New
@@ -167,16 +167,17 @@
         <template #footer>
             <button @click="deleteDialog.show = false"
                 class="font-medium mr-2 text-white bg-gray-500 px-2 py-1 rounded hover:bg-gray-700 transition dark:text-blue-500">Cancel</button>
-            <Link :href="route('announcements.destroy', deleteDialog.id)" method="delete" as="button"
+            <Link @click="closeModal" :href="route('announcements.destroy', deleteDialog.id)" method="delete"
+                as="button"
                 class="font-medium text-white bg-red-500 px-2 py-1 rounded hover:bg-red-700 transition dark:text-blue-500">
             <i class="fa fa-trash-can self-center"></i> Confirm
             </Link>
         </template>
 
     </DialogModal>
-    <Create />
+    <Create :show="createModal" @close="closeModal" />
 
-    <Edit v-if="editModal.show" :announcement="editModal.item" :show="editModal.show" @close="closeModal"  />
+    <Edit :announcement="editModal.item" :show="editModal.show" @close="closeModal" />
 
 </template>
 
@@ -201,6 +202,8 @@ const props = defineProps({
     filters: Object,
 });
 
+const createModal = ref(false);
+
 const filters = ref(props.filters);
 const deleteDialog = ref({
     show: false,
@@ -221,6 +224,7 @@ const handleEdit = (announcement) => {
 const closeModal = () => {
     deleteDialog.value.show = false;
     editModal.value.show = false;
+    createModal.value = false;
 };
 
 // delete announcement

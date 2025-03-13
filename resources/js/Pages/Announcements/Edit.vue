@@ -76,14 +76,15 @@ const props = defineProps({
     announcement: Object,
     show: Boolean,
 });
+
 const form = ref({
-    title: props.announcement.title,
-    description: props.announcement.description,
+    title: props.announcement?.title??'',
+    description: props.announcement?.description??'',
     image: null,
-    importance: props.announcement.importance,
-    start_date: props.announcement.start_date,
-    end_date: props.announcement.end_date,
-    status: props.announcement.status,
+    importance: props.announcement?.importance??'',
+    start_date: props.announcement?.start_date??'',
+    end_date: props.announcement?.end_date??'',
+    status: props.announcement?.status??'',
 });
 
 const handleImageUpload = (event) => {
