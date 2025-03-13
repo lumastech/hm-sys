@@ -4,6 +4,7 @@ import DeleteTeamForm from '@/Pages/Teams/Partials/DeleteTeamForm.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
 import TeamMemberManager from '@/Pages/Teams/Partials/TeamMemberManager.vue';
 import UpdateTeamNameForm from '@/Pages/Teams/Partials/UpdateTeamNameForm.vue';
+import DashLayout from '@/Layouts/DashLayout.vue';
 
 defineProps({
     team: Object,
@@ -13,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="Team Settings">
+    <DashLayout title="Team Settings">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 Team Settings
@@ -24,12 +25,8 @@ defineProps({
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                 <UpdateTeamNameForm :team="team" :permissions="permissions" />
 
-                <TeamMemberManager
-                    class="mt-10 sm:mt-0"
-                    :team="team"
-                    :available-roles="availableRoles"
-                    :user-permissions="permissions"
-                />
+                <TeamMemberManager class="mt-10 sm:mt-0" :team="team" :available-roles="availableRoles"
+                    :user-permissions="permissions" />
 
                 <template v-if="permissions.canDeleteTeam && ! team.personal_team">
                     <SectionBorder />
@@ -38,5 +35,5 @@ defineProps({
                 </template>
             </div>
         </div>
-    </AppLayout>
+    </DashLayout>
 </template>

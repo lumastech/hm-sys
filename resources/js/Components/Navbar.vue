@@ -35,10 +35,6 @@
 
             <!-- right navbar -->
             <div class="flex items-center relative">
-                <!-- Settings Dropdown -->
-                <Link :href="route('logout')" as="button" method="post">
-                 <i class="fa fa-user"></i>
-                </Link>
                 <Link>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
                     class="fill-current mr-3 hover:text-blue-500">
@@ -47,8 +43,54 @@
                         d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" />
                 </svg>
                 </Link>
-                <img src="https://a7sas.net/wp-content/uploads/2019/07/4060.jpeg" class="w-9 h-9 rounded-full shadow-lg"
+
+                <img id="dropdownMenuButton" data-dropdown-toggle="dropdownMenu"
+                    src="https://a7sas.net/wp-content/uploads/2019/07/4060.jpeg" class="w-9 h-9 rounded-full shadow-lg"
                     @click="dropDownOpen = !dropDownOpen">
+                <!-- Dropdown menu -->
+                <div id="dropdownMenu"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <Link :href="route('profile.show')"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <i class="fa-solid w-7 fa-user"></i> My Profile
+                            </Link>
+                        </li>
+                        <li>
+                            <Link v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <i class="fa-solid w-7 fa-square-binary"></i> API Tokens
+                            </Link>
+                        </li>
+                        <li>
+                            <Link :href="route('teams.show', $page.props.auth.user.current_team)"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <i class="fa-solid w-7 fa-gears"></i>Team Settings
+                            </Link>
+                        </li>
+                        <li>
+                            <Link v-if="$page.props.jetstream.canCreateTeams" :href="route('teams.create')"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <i class="fa-solid w-7 fa-people-group"></i>Create New Team
+                            </Link>
+                        </li>
+                        <li>
+                            <Link :href="route('profile.show')"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <i class="fa-solid w-7 fa-gear"></i> Settings
+                            </Link>
+                        </li>
+                    </ul>
+                    <div class="py-1">
+                        <Link :href="route('logout')" method="post"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <i class="fa-solid w-7 fa-right-from-bracket"></i> Logout
+                        </Link>
+                    </div>
+                </div>
+
+
             </div>
 
         </div>
@@ -65,24 +107,13 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { Link } from '@inertiajs/vue3';
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
 
-
-export default {
-    name: 'Navbar',
-    components: {
-        Link
-    },
-    setup(props, ctx) {
-        const toggleSidebar = () => {
-            // ctx.$store.dispatch('toggleSidebar')
-            alert("hello")
-        }
-        return {
-            dropDownOpen: false,
-            toggleSidebar
-        }
-    }
-}
+// initialize components based on data attribute selectors
+onMounted(() => {
+    initFlowbite();
+})
 </script>
