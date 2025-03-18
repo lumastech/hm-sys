@@ -13,7 +13,7 @@ class BusinessController extends Controller
      */
     public function index(Request $request) {
         // Fetch Businesses from the database
-        $Businesses = Business::query()
+        $businesses = Business::query()
             ->with('user') // Eager load the user relationship
             ->when($request->input('search'), function ($query, $search) {
                 $query->where('title', 'like', "%{$search}%")
@@ -22,9 +22,9 @@ class BusinessController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        // Pass the Businesses to the Inertia view
+        // Pass the businesses to the Inertia view
         return Inertia::render('Businesses/Index', [
-            'Businesses' => $Businesses,
+            'businesses' => $businesses,
             'filters' => $request->only(['search']),
         ]);
     }
