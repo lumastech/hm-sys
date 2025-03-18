@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ResearchController;
 
 Route::get('/', function () {
     return Inertia::render('Home', [
@@ -29,6 +36,15 @@ Route::middleware([
 
     // Announcements
     Route::resource('announcements', AnnouncementController::class);
+
+    // Business
+    Route::resource('business', BusinessController::class);
+    Route::resource('service', ServiceController::class);
+    Route::resource('project', ProjectController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('event', EventController::class);
+    Route::resource('forum', ForumController::class);
+    Route::resource('research', ResearchController::class);
 
     // Route::resource('image', ImageController::class);
     // Route::resource('file', FileController::class);

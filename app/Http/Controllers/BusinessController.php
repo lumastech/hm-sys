@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class BusinessController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index(Request $request) {
+        // Fetch Businesses from the database
+        $Businesses = Business::query()
+            ->with('user') // Eager load the user relationship
+            ->when($request->input('search'), function ($query, $search) {
+                $query->where('title', 'like', "%{$search}%")
+                      ->orWhere('description', 'like', "%{$search}%");
+            })
+            ->paginate(10)
+            ->withQueryString();
+
+        // Pass the Businesses to the Inertia view
+        return Inertia::render('Businesses/Index', [
+            'Businesses' => $Businesses,
+            'filters' => $request->only(['search']),
+        ]);
     }
 
     /**
@@ -20,7 +34,7 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Businesses/Create');
     }
 
     /**
@@ -28,38 +42,115 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request
+        $validatedData = $request->validate([
+            // 'title' => 'required|numeric',
+            // 'description' => 'required|string',
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'importance' => 'required|in:high,medium,low',
+            // 'start_date' => 'required|date',
+            // 'end_date' => 'required|date|after_or_equal:start_date',
+            // 'status' => 'required|in:active,inactive',
+
+            'user_id' => 'required|numeric',
+            'contact_id' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'subcategory' => 'required|string|max:255',
+            'description' => 'required|string',
+            'logo' => 'required|string|max:255',
+            'image_id' => 'required|numeric',
+        ]);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('Businesses', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+
+        // Add the authenticated user's ID to the data
+        $validatedData['user_id'] = auth()->id();
+
+        // Create the Business
+        Business::create($validatedData);
+
+        // Redirect to the Businesses index page with a success message
+        return redirect()->route('Businesses.index')->with('success', 'Business created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Business $business)
+    public function show(Business $Business)
     {
-        //
+        return Inertia::render('Businesses/Show', [
+            'Business' => $Business,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Business $business)
+    public function edit(Business $Business)
     {
-        //
+       return Inertia::render('Businesses/Edit', [
+            'Business' => $Business,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Business $business)
+    public function update(Request $request, Business $Business)
     {
-        //
+        // Validate the request
+        $validatedData = $request->validate([
+            'user_id' => 'required|numeric',
+            'contact_id' => 'nullable|numeric',
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'subcategory' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'logo' => 'nullable|string|max:255',
+            'status' => 'nullable|in:active,inactive',
+            'image_id' => 'nullable|numeric',
+        ]);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($Business->image) {
+                Storage::disk('public')->delete($Business->image);
+            }
+
+            // Store the new image
+            $imagePath = $request->file('image')->store('Businesses', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+
+        // Update the Business
+        $Business->update($validatedData);
+
+        // Redirect to the Businesses index page with a success message
+        return redirect()->route('Businesses.index')->with('success', 'Business updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Business $business)
+    public function destroy(Business $Business)
     {
-        //
+        // Delete the associated image if it exists
+        if ($Business->image) {
+            Storage::disk('public')->delete($Business->image);
+        }
+
+        // Delete the Business
+        $Business->delete();
+
+        // Redirect to the Businesses index page with a success message
+        return redirect()->route('Businesses.index')->with('success', 'Business deleted successfully.');
     }
 }

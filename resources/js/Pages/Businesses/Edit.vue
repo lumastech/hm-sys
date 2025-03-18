@@ -1,7 +1,7 @@
 <template v-if="props.show">
     <DialogModal :show="props.show" :closeable="true" @close="props.show = false">
         <template #title>
-            Edit Announcement
+            Edit Business
         </template>
         <template #content>
             <form @submit.prevent="submitForm">
@@ -67,28 +67,28 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-import { router } from '@inertiajs/vue3';
+import { router, useForm } from '@inertiajs/vue3';
 import DialogModal from '@/Components/DialogModal.vue';
 
 
 
 const props = defineProps({
     show: Boolean,
-    announcement: {
+    business: {
         type: Object,
         default: () => ({}),
     },
 });
 
 
-const form = ref({
-    title: props.announcement?.title || '', // Use optional chaining and provide a default value
-    description: props.announcement?.description || '',
+const form = useForm({
+    title: props.business?.title || '', // Use optional chaining and provide a default value
+    description: props.business?.description || '',
     image: null,
-    importance: props.announcement?.importance || 'medium', // Default to 'medium'
-    start_date: props.announcement?.start_date || '',
-    end_date: props.announcement?.end_date || '',
-    status: props.announcement?.status || 'active', // Default to 'active'
+    importance: props.business?.importance || 'medium', // Default to 'medium'
+    start_date: props.business?.start_date || '',
+    end_date: props.business?.end_date || '',
+    status: props.business?.status || 'active', // Default to 'active'
 });
 
 const handleImageUpload = (event) => {
@@ -96,23 +96,24 @@ const handleImageUpload = (event) => {
 };
 
 watch(
-    () => props.announcement,
-    (newAnnouncement) => {
-        form.value = {
-            title: newAnnouncement?.title || '',
-            description: newAnnouncement?.description || '',
-            image: null,
-            importance: newAnnouncement?.importance || 'medium',
-            start_date: newAnnouncement?.start_date || '',
-            end_date: newAnnouncement?.end_date || '',
-            status: newAnnouncement?.status || 'active',
-        };
+    () => props.business,
+    (newBusiness) => {
+        form.user_id = newBusiness.user_id;
+        form.contact_id = newBusiness.contact_id;
+        form.name = newBusiness.name;
+        form.type = newBusiness.type;
+        form.category = newBusiness.category;
+        form.subcategory = newBusiness.subcategory;
+        form.description = newBusiness.description;
+        form.logo = newBusiness.logo;
+        form.image_id = newBusiness.image_id;
+        form.status = newBusiness.status;
     },
     { deep: true, immediate: true }
 );
 
 const submitForm = () => {
-    router.post(`/announcements/${props.announcement.id}`, {
+    router.post(`/business/${props.business.id}`, {
         _method: 'PUT',
         ...form.value,
     }, {
@@ -120,7 +121,7 @@ const submitForm = () => {
     }).then(() => {
         props.show = false;
         emit('close');
-        alert('Announcement updated successfully');
+        alert('Business updated successfully');
     });
 };
 

@@ -22,31 +22,31 @@
             </div>
             <span class="flex-auto">Announcements</span>
             </Link>
-            <Link href="/businesses" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/business" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-building text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
             <span class="flex-auto">Businesses</span>
             </Link>
-            <Link href="/services-products" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/service" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-cubes text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
             <span class="flex-auto">Services/Products</span>
             </Link>
-            <Link href="/connections" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/connection" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-link text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
             <span class="flex-auto">Connections</span>
             </Link>
-            <Link href="/projects" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/project" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-tasks text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
             <span class="flex-auto">Projects</span>
             </Link>
-            <Link href="/events" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/event" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-calendar text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
@@ -64,7 +64,7 @@
             </div>
             <span class="flex-auto">Research</span>
             </Link>
-            <Link href="/blogs" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/blog" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="far fa-edit text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
@@ -76,20 +76,20 @@
                 <i class="fa fa-plus self-center"></i>
             </div>
 
-            <Link href="/users" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/user" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-users text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
             <span class="flex-auto">Users</span>
             </Link>
 
-            <Link href="/reports" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/report" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-file text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
             <span class="flex-auto">Reports</span>
             </Link>
-            <Link href="/issues" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/issue" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-exclamation-circle text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>

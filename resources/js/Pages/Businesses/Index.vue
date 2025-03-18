@@ -2,7 +2,7 @@
     <DashLayout>
         <!-- breadcrumb -->
 
-        <Head title="Announcements" />
+        <Head title="Businesses" />
         <nav class="text-sm font-semibold mb-6" aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex">
                 <li class="flex items-center text-blue-500">
@@ -74,9 +74,9 @@
                                     stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
-                        <input v-model="filters.search" type="text" id="table-search-announcements"
+                        <input v-model="filters.search" type="text" id="table-search-Businesses"
                             class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Search for announcements" />
+                            placeholder="Search for Businesses" />
                     </div>
                 </div>
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -99,45 +99,45 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="announcement in announcements.data" :key="announcement.id"
+                        <tr v-for="Business in Businesses.data" :key="Business.id"
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
-                                    <input :id="`checkbox-table-search-${announcement.id}`" type="checkbox"
+                                    <input :id="`checkbox-table-search-${Business.id}`" type="checkbox"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label :for="`checkbox-table-search-${announcement.id}`"
+                                    <label :for="`checkbox-table-search-${Business.id}`"
                                         class="sr-only">checkbox</label>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">{{ announcement.title }}</td>
-                            <td class="px-6 py-4">{{ announcement.description }}</td>
+                            <td class="px-6 py-4">{{ Business.title }}</td>
+                            <td class="px-6 py-4">{{ Business.description }}</td>
                             <td class="px-6 py-4">
                                 <span :class="{
                                     'px-2 py-1 text-sm rounded-full': true,
-                                    'bg-green-100 text-green-800': announcement.importance === 'high',
-                                    'bg-yellow-100 text-yellow-800': announcement.importance === 'medium',
-                                    'bg-red-100 text-red-800': announcement.importance === 'low',
+                                    'bg-green-100 text-green-800': Business.importance === 'high',
+                                    'bg-yellow-100 text-yellow-800': Business.importance === 'medium',
+                                    'bg-red-100 text-red-800': Business.importance === 'low',
                                 }">
-                                    {{ announcement.importance }}
+                                    {{ Business.importance }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4">{{ announcement.start_date }}</td>
-                            <td class="px-6 py-4">{{ announcement.end_date }}</td>
+                            <td class="px-6 py-4">{{ Business.start_date }}</td>
+                            <td class="px-6 py-4">{{ Business.end_date }}</td>
                             <td class="px-6 py-4">
                                 <span :class="{
                                     'px-2 py-1 text-sm rounded-full': true,
-                                    'bg-green-100 text-green-800': announcement.status === 'active',
-                                    'bg-red-100 text-red-800': announcement.status === 'inactive',
+                                    'bg-green-100 text-green-800': Business.status === 'active',
+                                    'bg-red-100 text-red-800': Business.status === 'inactive',
                                 }">
-                                    {{ announcement.status }}
+                                    {{ Business.status }}
                                 </span>
                             </td>
                             <td class="px-6 py-4 min-w-[100px]">
                                 <div class="flex space-x-2">
-                                    <button @click="handleEdit(announcement)" type="button"
+                                    <button @click="handleEdit(Business)" type="button"
                                         class="font-medium text-blue-600 dark:text-blue-500"><i
                                             class="fa fa-pen-to-square"></i></button>
-                                    <button @click="deleteAnnouncement(announcement.id)"
+                                    <button @click="deleteBusiness(Business.id)"
                                         class="font-medium text-red-600 dark:text-red-500"><i
                                             class="fa fa-trash-can"></i></button>
                                 </div>
@@ -148,7 +148,7 @@
 
                 <!-- Pagination -->
                 <div class="mt-4">
-                    <Pagination :links="announcements.links" />
+                    <Pagination :links="Businesses.links" />
                 </div>
             </div>
 
@@ -158,7 +158,7 @@
     </DashLayout>
     <DialogModal :show="deleteDialog.show" @close="closeModal">
         <template #title>
-            Delete Announcement
+            Delete Business
         </template>
         <template #content>
             Are you sure?
@@ -167,7 +167,7 @@
         <template #footer>
             <button @click="deleteDialog.show = false"
                 class="font-medium mr-2 text-white bg-gray-500 px-2 py-1 rounded hover:bg-gray-700 transition dark:text-blue-500">Cancel</button>
-            <Link @click="closeModal" :href="route('announcements.destroy', deleteDialog.id)" method="delete"
+            <Link @click="closeModal" :href="route('Businesses.destroy', deleteDialog.id)" method="delete"
                 as="button"
                 class="font-medium text-white bg-red-500 px-2 py-1 rounded hover:bg-red-700 transition dark:text-blue-500">
             <i class="fa fa-trash-can self-center"></i> Confirm
@@ -185,7 +185,7 @@
         :status="editModal.item.status"
         :show="editModal.show" @close="closeModal" /> -->
 
-    <Edit :show="editModal.show" @close="closeModal" :announcement="editModal.item" />
+    <Edit :show="editModal.show" @close="closeModal" :Business="editModal.item" />
 
 </template>
 
@@ -206,7 +206,7 @@ import Edit from './Edit.vue';
 import DialogModal from '@/Components/DialogModal.vue';
 
 const props = defineProps({
-    announcements: Object,
+    Businesses: Object,
     filters: Object,
 });
 
@@ -230,9 +230,9 @@ const editModal = ref({
     },
 });
 
-const handleEdit = (announcement) => {
-    // editModal.value.item = announcement;
-    editModal.value.item = { ...announcement };
+const handleEdit = (Business) => {
+    // editModal.value.item = Business;
+    editModal.value.item = { ...Business };
     editModal.value.show = true;
 };
 
@@ -242,8 +242,8 @@ const closeModal = () => {
     createModal.value = false;
 };
 
-// delete announcement
-const deleteAnnouncement = (id) => {
+// delete Business
+const deleteBusiness = (id) => {
     deleteDialog.value.id = id;
     deleteDialog.value.show = true;
 };
@@ -251,6 +251,6 @@ const deleteAnnouncement = (id) => {
 
 // Watch for changes in filters and reload the page with new filters
 watch(filters, (value) => {
-    router.get('/announcements', { search: value.search }, { preserveState: true });
+    router.get('/Businesses', { search: value.search }, { preserveState: true });
 }, { deep: true });
 </script>
