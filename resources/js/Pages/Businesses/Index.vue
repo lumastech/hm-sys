@@ -13,126 +13,139 @@
                     </svg>
                 </li>
                 <li class="flex items-center">
-                    <a href="#" class="text-gray-600">Business</a>
+                    <a href="#" class="text-gray-600">Users</a>
                 </li>
             </ol>
         </nav>
         <div class="max-w-7xl sm:px-6 lg:px-8">
 
-            <!-- Users Table -->5
-            <template>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <div
-                        class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
-                        <div>
-                            <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
-                                class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                type="button">
-                                <span class="sr-only">Action button</span>
-                                Action
-                                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <!-- Dropdown menu -->
-                            <div id="dropdownAction"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                                    aria-labelledby="dropdownActionButton">
-                                    <li>
-                                        <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mark
-                                            as Important</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                                    </li>
-                                </ul>
-                                <div class="py-1">
+            <!-- Users Table -->
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div
+                    class="flex space-x-2 flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+                    <div class="flex-auto">
+                        <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
+                            class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                            type="button">
+                            <span class="sr-only">Action button</span>
+                            Action
+                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownAction"
+                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                                aria-labelledby="dropdownActionButton">
+                                <li>
                                     <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-                                </div>
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mark
+                                        as Important</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
                             </div>
-                        </div>
-                        <label for="table-search" class="sr-only">Search</label>
-                        <div class="relative">
-                            <div
-                                class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                </svg>
-                            </div>
-                            <input v-model="filters.search" type="text" id="table-search-businesses"
-                                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search for businesses" />
                         </div>
                     </div>
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-all-search" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                                    </div>
-                                </th>
-                                <th scope="col" class="px-6 py-3">Name</th>
-                                <th scope="col" class="px-6 py-3">Type</th>
-                                <th scope="col" class="px-6 py-3">Category</th>
-                                <th scope="col" class="px-6 py-3">Subcategory</th>
-                                <th scope="col" class="px-6 py-3">Description</th>
-                                <th scope="col" class="px-6 py-3">Status</th>
-                                <th scope="col" class="px-6 py-3">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="business in businesses.data" :key="business.id"
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <input :id="`checkbox-table-search-${business.id}`" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label :for="`checkbox-table-search-${business.id}`"
-                                            class="sr-only">checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">{{ business.name }}</td>
-                                <td class="px-6 py-4">{{ business.type }}</td>
-                                <td class="px-6 py-4">{{ business.category }}</td>
-                                <td class="px-6 py-4">{{ business.subcategory }}</td>
-                                <td class="px-6 py-4">{{ business.description }}</td>
-                                <td class="px-6 py-4">
-                                    <span :class="{
-                                        'px-2 py-1 text-sm rounded-full': true,
-                                        'bg-green-100 text-green-800': business.status === 'active',
-                                        'bg-red-100 text-red-800': business.status === 'inactive',
-                                    }">
-                                        {{ business.status }}
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- Pagination -->
-                    <div class="mt-4">
-                        <Pagination :links="businesses.links" />
+                    <div class="self-center space-x-2">
+                        <!-- Modal toggle -->
+                        <button @click="createModal = true"
+                            class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            type="button">
+                            <i class="fa fa-plus"></i> New
+                        </button>
+                    </div>
+                    <label for="table-search" class="sr-only">Search</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                        </div>
+                        <input v-model="filters.search" type="text" id="table-search-businesses"
+                            class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Search for businesses" />
                     </div>
                 </div>
-            </template>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all-search" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                </div>
+                            </th>
+                            <th scope="col" class="px-6 py-3">Name</th>
+                            <th scope="col" class="px-6 py-3">Description</th>
+                            <th scope="col" class="px-6 py-3">Category</th>
+                            <th scope="col" class="px-6 py-3">Status</th>
+                            <th scope="col" class="px-6 py-3">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="business in businesses.data" :key="business.id"
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                    <input :id="`checkbox-table-search-${business.id}`" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label :for="`checkbox-table-search-${business.id}`"
+                                        class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <p>{{ business.name }}</p>
+                                <p>{{ business.description }}</p>
+                            </td>
+                            <td class="px-6 py-4">{{ business.category }}</td>
+                            <td class="px-6 py-4">
+                                <span :class="{
+                                    'px-2 py-1 text-sm rounded-full': true,
+                                    'bg-green-100 text-green-800': business.status === 'active',
+                                    'bg-red-100 text-red-800': business.status === 'inactive',
+                                }">
+                                    {{ business.status }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 min-w-[100px]">
+                                <div class="flex space-x-2">
+                                    <button @click="handleEdit(business)" type="button"
+                                        class="font-medium text-blue-600 dark:text-blue-500"><i
+                                            class="fa fa-pen-to-square"></i></button>
+                                    <button @click="deleteBusiness(business.id)"
+                                        class="font-medium text-red-600 dark:text-red-500"><i
+                                            class="fa fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="mt-4">
+                    <Pagination :links="businesses.links" />
+                </div>
+            </div>
+
+            <!-- Main modal -->
 
         </div>
     </DashLayout>
+
     <DialogModal :show="deleteDialog.show" @close="closeModal">
         <template #title>
             Delete Business
@@ -144,24 +157,15 @@
         <template #footer>
             <button @click="deleteDialog.show = false"
                 class="font-medium mr-2 text-white bg-gray-500 px-2 py-1 rounded hover:bg-gray-700 transition dark:text-blue-500">Cancel</button>
-            <Link @click="closeModal" :href="route('Businesses.destroy', deleteDialog.id)" method="delete" as="button"
+            <Link @click="closeModal" :href="route('businesses.destroy', deleteDialog.id)" method="delete" as="button"
                 class="font-medium text-white bg-red-500 px-2 py-1 rounded hover:bg-red-700 transition dark:text-blue-500">
             <i class="fa fa-trash-can self-center"></i> Confirm
             </Link>
         </template>
-
     </DialogModal>
+
     <Create :show="createModal" @close="closeModal" />
-
-    <!-- <Edit v-show="editModal" :title="editModal.item.title"
-        :description="editModal.item.description"
-        :importance="editModal.item.importance"
-        :start_date="editModal.item.start_date"
-        :end_date="editModal.item.end_date"
-        :status="editModal.item.status"
-        :show="editModal.show" @close="closeModal" /> -->
-
-    <Edit :show="editModal.show" @close="closeModal" :Business="editModal.item" />
+    <Edit :show="editModal.show" @close="closeModal" :business="editModal.item" />
 
 </template>
 
@@ -196,11 +200,18 @@ const deleteDialog = ref({
 
 const editModal = ref({
     show: false,
-    item: {},
+    item: {
+        title: '',
+        description: '',
+        importance: 'medium',
+        start_date: '',
+        end_date: '',
+        status: 'active',
+    },
 });
 
-const handleEdit = (Business) => {
-    // editModal.value.item = Business;
+const handleEdit = (business) => {
+    // editModal.value.item = business;
     editModal.value.item = { ...business };
     editModal.value.show = true;
 };
@@ -211,7 +222,7 @@ const closeModal = () => {
     createModal.value = false;
 };
 
-// delete Business
+// delete business
 const deleteBusiness = (id) => {
     deleteDialog.value.id = id;
     deleteDialog.value.show = true;
@@ -220,6 +231,6 @@ const deleteBusiness = (id) => {
 
 // Watch for changes in filters and reload the page with new filters
 watch(filters, (value) => {
-    router.get('/Businesses', { search: value.search }, { preserveState: true });
+    router.get('/businesses', { search: value.search }, { preserveState: true });
 }, { deep: true });
 </script>

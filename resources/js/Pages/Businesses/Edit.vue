@@ -7,38 +7,53 @@
             <form @submit.prevent="submitForm">
                 <div class="p-4 md:p-5 space-y-4">
                     <div class="mb-4">
-                        <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                        <input v-model="form.title" type="text" id="title"
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input v-model="form.name" type="text" id="name"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
+                        <select v-model="form.type" id="type"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                            <option value="">Select Type</option>
+                            <option value="retail">Retail</option>
+                            <option value="service">Service</option>
+                            <option value="manufacturing">Manufacturing</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                        <select v-model="form.category" id="category" @change="updateSubcategories"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                            <option value="">Select Category</option>
+                            <option v-for="category in categories" :key="category.id" :value="category.value">
+                                {{ category.label }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="subcategory" class="block text-sm font-medium text-gray-700">Subcategory</label>
+                        <select v-model="form.subcategory" id="subcategory"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                            :disabled="!form.category || !filteredSubcategories.length">
+                            <option value="">Select Subcategory</option>
+                            <option v-for="subcategory in filteredSubcategories" :key="subcategory.id"
+                                :value="subcategory.value">
+                                {{ subcategory.label }}
+                            </option>
+                        </select>
                     </div>
                     <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                         <textarea v-model="form.description" id="description"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required></textarea>
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea>
                     </div>
                     <div class="mb-4">
-                        <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
-                        <input type="file" id="image" @change="handleImageUpload" class="mt-1 block w-full" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="importance" class="block text-sm font-medium text-gray-700">Importance</label>
-                        <select v-model="form.importance" id="importance"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="start_date" class="block text-sm font-medium text-gray-700">Start
-                            Date</label>
-                        <input v-model="form.start_date" type="date" id="start_date"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
-                    </div>
-                    <div class="mb-4">
-                        <label for="end_date" class="block text-sm font-medium text-gray-700">End Date</label>
-                        <input v-model="form.end_date" type="date" id="end_date"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required />
+                        <label for="logo" class="block text-sm font-medium text-gray-700">Logo</label>
+                        <input type="file" id="logo" @change="handleLogoUpload" class="mt-1 block w-full" />
+                        <div v-if="props.business?.logo" class="mt-2">
+                            <span class="text-sm text-gray-500">Current logo: {{ props.business.logo }}</span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
@@ -46,9 +61,9 @@
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
                         </select>
                     </div>
-
                 </div>
             </form>
         </template>
@@ -66,11 +81,42 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { router, useForm } from '@inertiajs/vue3';
 import DialogModal from '@/Components/DialogModal.vue';
 
+// Sample category data - should match your create component
+const categories = ref([
+    { id: 1, value: 'food', label: 'Food & Beverage' },
+    { id: 2, value: 'fashion', label: 'Fashion & Apparel' },
+    { id: 3, value: 'technology', label: 'Technology' },
+    { id: 4, value: 'health', label: 'Health & Wellness' },
+]);
 
+// Sample subcategory data - should match your create component
+const allSubcategories = ref([
+    { id: 1, category: 'food', value: 'restaurant', label: 'Restaurant' },
+    { id: 2, category: 'food', value: 'cafe', label: 'Cafe' },
+    { id: 3, category: 'food', value: 'bakery', label: 'Bakery' },
+    { id: 4, category: 'fashion', value: 'clothing', label: 'Clothing' },
+    { id: 5, category: 'fashion', value: 'footwear', label: 'Footwear' },
+    { id: 6, category: 'fashion', value: 'accessories', label: 'Accessories' },
+    { id: 7, category: 'technology', value: 'electronics', label: 'Electronics' },
+    { id: 8, category: 'technology', value: 'software', label: 'Software' },
+    { id: 9, category: 'health', value: 'fitness', label: 'Fitness' },
+    { id: 10, category: 'health', value: 'pharmacy', label: 'Pharmacy' },
+]);
+
+// Compute filtered subcategories based on selected category
+const filteredSubcategories = computed(() => {
+    if (!form.category) return [];
+    return allSubcategories.value.filter(sub => sub.category === form.category);
+});
+
+// Reset subcategory when category changes
+const updateSubcategories = () => {
+    form.subcategory = '';
+};
 
 const props = defineProps({
     show: Boolean,
@@ -80,54 +126,48 @@ const props = defineProps({
     },
 });
 
+const emit = defineEmits(['close']);
 
 const form = useForm({
-    title: props.business?.title || '', // Use optional chaining and provide a default value
+    user_id: props.business?.user_id || '',
+    contact_id: props.business?.contact_id || '',
+    name: props.business?.name || '',
+    type: props.business?.type || '',
+    category: props.business?.category || '',
+    subcategory: props.business?.subcategory || '',
     description: props.business?.description || '',
-    image: null,
-    importance: props.business?.importance || 'medium', // Default to 'medium'
-    start_date: props.business?.start_date || '',
-    end_date: props.business?.end_date || '',
-    status: props.business?.status || 'active', // Default to 'active'
+    logo: null,
+    image_id: props.business?.image_id || null,
+    status: props.business?.status || 'active',
 });
 
-const handleImageUpload = (event) => {
-    form.value.image = event.target.files[0];
+const handleLogoUpload = (event) => {
+    form.logo = event.target.files[0];
 };
 
 watch(
     () => props.business,
     (newBusiness) => {
-        form.user_id = newBusiness.user_id;
-        form.contact_id = newBusiness.contact_id;
-        form.name = newBusiness.name;
-        form.type = newBusiness.type;
-        form.category = newBusiness.category;
-        form.subcategory = newBusiness.subcategory;
-        form.description = newBusiness.description;
-        form.logo = newBusiness.logo;
-        form.image_id = newBusiness.image_id;
-        form.status = newBusiness.status;
+        if (newBusiness) {
+            form.name = newBusiness.name || '';
+            form.type = newBusiness.type || '';
+            form.category = newBusiness.category || '';
+            form.subcategory = newBusiness.subcategory || '';
+            form.description = newBusiness.description || '';
+            form.status = newBusiness.status || 'active';
+            form.image_id = newBusiness.image_id || null;
+        }
     },
-    { deep: true, immediate: true }
+    { immediate: true }
 );
 
 const submitForm = () => {
-    router.post(`/business/${props.business.id}`, {
-        _method: 'PUT',
-        ...form.value,
-    }, {
-        forceFormData: true,
-    }).then(() => {
-        props.show = false;
-        emit('close');
-        alert('Business updated successfully');
+    form.put(`/businesses/${props.business.id}`, {
+        preserveScroll: true,
+        onSuccess: () => {
+            props.show = false;
+            emit('close');
+        },
     });
 };
-
-
-
-
-
-
 </script>

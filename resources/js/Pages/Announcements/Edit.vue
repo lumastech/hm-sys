@@ -67,7 +67,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-import { router } from '@inertiajs/vue3';
+import { router,useForm } from '@inertiajs/vue3';
 import DialogModal from '@/Components/DialogModal.vue';
 
 
@@ -80,15 +80,17 @@ const props = defineProps({
     },
 });
 
+const emit = defineEmits(['close']);
 
-const form = ref({
-    title: props.announcement?.title || '', // Use optional chaining and provide a default value
+
+const form = useForm({
+    title: props.announcement?.title || '',
     description: props.announcement?.description || '',
     image: null,
-    importance: props.announcement?.importance || 'medium', // Default to 'medium'
+    importance: props.announcement?.importance || 'medium',
     start_date: props.announcement?.start_date || '',
     end_date: props.announcement?.end_date || '',
-    status: props.announcement?.status || 'active', // Default to 'active'
+    status: props.announcement?.status || 'active',
 });
 
 const handleImageUpload = (event) => {
@@ -98,29 +100,27 @@ const handleImageUpload = (event) => {
 watch(
     () => props.announcement,
     (newAnnouncement) => {
-        form.value = {
-            title: newAnnouncement?.title || '',
-            description: newAnnouncement?.description || '',
-            image: null,
-            importance: newAnnouncement?.importance || 'medium',
-            start_date: newAnnouncement?.start_date || '',
-            end_date: newAnnouncement?.end_date || '',
-            status: newAnnouncement?.status || 'active',
-        };
+        // form = {
+        form.title = newAnnouncement?.title || ''
+        form.description = newAnnouncement?.description || ''
+        form.image = null
+        form.importance = newAnnouncement?.importance || 'medium'
+        form.start_date = newAnnouncement?.start_date || ''
+        form.end_date = newAnnouncement?.end_date || ''
+        form.status = newAnnouncement?.status || 'active'
+        // };
     },
-    { deep: true, immediate: true }
+    // { deep: true, immediate: true }
 );
 
 const submitForm = () => {
-    router.post(`/announcements/${props.announcement.id}`, {
-        _method: 'PUT',
-        ...form.value,
-    }, {
-        forceFormData: true,
-    }).then(() => {
-        props.show = false;
-        emit('close');
-        alert('Announcement updated successfully');
+    form.put(`/announcements/${props.announcement.id}`, {
+        preserveScroll: true,
+        onSuccess: () => {
+            props.show = false;
+            // alert('Announcement updated successfully');
+            emit('close');
+        },
     });
 };
 
