@@ -162,7 +162,7 @@ watch(
 );
 
 const submitForm = () => {
-    form.put(`/businesses/${props.business.id}`, {
+    form.put(`/business/${props.business.id}`, {
         preserveScroll: true,
         onSuccess: () => {
             props.show = false;

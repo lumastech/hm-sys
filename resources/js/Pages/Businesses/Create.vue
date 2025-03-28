@@ -137,7 +137,7 @@ const handleLogoUpload = (event) => {
 };
 
 const submitForm = () => {
-    form.post('/businesses', {
+    form.post('/business', {
         onSuccess: () => {
             props.show = false;
             form.reset();
