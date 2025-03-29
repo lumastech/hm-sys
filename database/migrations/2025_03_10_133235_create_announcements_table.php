@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
-            $table->string('importance');
+            $table->string('importance')->default('medium');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('status');
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

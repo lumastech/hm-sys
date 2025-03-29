@@ -17,10 +17,10 @@ return new class extends Migration
             $table->foreignId('business_id');
             $table->foreignId('user_id');
             $table->string('category');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->string('visibility');
-            $table->string('status');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

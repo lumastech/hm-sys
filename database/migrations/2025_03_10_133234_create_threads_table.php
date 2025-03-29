@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('video')->nullable();
             $table->string('file')->nullable();
-            $table->string('status');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

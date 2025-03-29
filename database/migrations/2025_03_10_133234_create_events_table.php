@@ -16,14 +16,14 @@ return new class extends Migration
              $table->foreignId('user_id')->constrained();
             $table->foreignId('business_id')->constrained();
             $table->string('category');
-            $table->string('access');
+            $table->string('access')->nullable();
             $table->string('title');
             $table->text('description');
             $table->date('start_date');
             $table->string('image')->nullable();
             $table->date('end_date');
             $table->decimal('price', 8, 2)->default(0);
-            $table->string('status');
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

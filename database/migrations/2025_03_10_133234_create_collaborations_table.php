@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('collaborations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id')->constrained()->nullable();
+            $table->foreignId('project_id');
             $table->foreignId('user_id')->constrained();
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

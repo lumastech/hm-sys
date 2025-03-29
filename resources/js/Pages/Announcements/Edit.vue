@@ -123,10 +123,4 @@ const submitForm = () => {
         },
     });
 };
-
-
-
-
-
-
 </script>

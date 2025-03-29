@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('business_id')->constrained();
-            $table->string('type');
+            $table->string('type')->default('general');
             $table->string('category');
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
-            $table->string('status');
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

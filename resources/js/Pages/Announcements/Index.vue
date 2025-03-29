@@ -156,6 +156,7 @@
 
         </div>
     </DashLayout>
+
     <DialogModal :show="deleteDialog.show" @close="closeModal">
         <template #title>
             Delete Announcement
@@ -176,15 +177,6 @@
 
     </DialogModal>
     <Create :show="createModal" @close="closeModal" />
-
-    <!-- <Edit v-show="editModal" :title="editModal.item.title"
-        :description="editModal.item.description"
-        :importance="editModal.item.importance"
-        :start_date="editModal.item.start_date"
-        :end_date="editModal.item.end_date"
-        :status="editModal.item.status"
-        :show="editModal.show" @close="closeModal" /> -->
-
     <Edit :show="editModal.show" @close="closeModal" :announcement="editModal.item" />
 
 </template>

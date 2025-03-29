@@ -12,6 +12,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ResearchController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return Inertia::render('Home', [
@@ -39,12 +41,13 @@ Route::middleware([
 
     // Business
     Route::resource('business', BusinessController::class);
-    Route::resource('service', ServiceController::class);
     Route::resource('project', ProjectController::class);
+    Route::resource('contact', ContactController::class);
     Route::resource('product', ProductController::class);
     Route::resource('event', EventController::class);
     Route::resource('forum', ForumController::class);
     Route::resource('research', ResearchController::class);
+    Route::resource('blog', BlogController::class);
 
     // Route::resource('image', ImageController::class);
     // Route::resource('file', FileController::class);

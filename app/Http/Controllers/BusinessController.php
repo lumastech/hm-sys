@@ -44,23 +44,16 @@ class BusinessController extends Controller
     {
         // Validate the request
         $validatedData = $request->validate([
-            // 'title' => 'required|numeric',
-            // 'description' => 'required|string',
-            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // 'importance' => 'required|in:high,medium,low',
-            // 'start_date' => 'required|date',
-            // 'end_date' => 'required|date|after_or_equal:start_date',
-            // 'status' => 'required|in:active,inactive',
-
-            'user_id' => 'required|numeric',
-            'contact_id' => 'required|numeric',
+            'user_id' => 'nullable|numeric',
+            'contact_id' => 'nullable|numeric',
             'name' => 'required|string|max:255',
             'type' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'subcategory' => 'required|string|max:255',
-            'description' => 'required|string',
-            'logo' => 'required|string|max:255',
-            'image_id' => 'required|numeric',
+            'subcategory' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'logo' => 'nullable|string|max:255',
+            'status' => 'nullable|in:active,inactive',
+            'image' => 'nullable|numeric',
         ]);
 
         // Handle image upload
@@ -107,7 +100,7 @@ class BusinessController extends Controller
         // Validate the request
         $validatedData = $request->validate([
             'user_id' => 'required|numeric',
-            'contact_id' => 'nullable|numeric',
+            'contact_id' => 'required|numeric',
             'name' => 'required|string|max:255',
             'type' => 'required|string|max:255',
             'category' => 'required|string|max:255',
@@ -115,7 +108,7 @@ class BusinessController extends Controller
             'description' => 'nullable|string',
             'logo' => 'nullable|string|max:255',
             'status' => 'nullable|in:active,inactive',
-            'image_id' => 'nullable|numeric',
+            'image' => 'nullable|numeric',
         ]);
 
         // Handle image upload

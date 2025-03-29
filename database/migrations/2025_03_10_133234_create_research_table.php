@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('researches', function (Blueprint $table) {
+        Schema::create('research', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('business_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('business_id')->nullable();
+            $table->foreignId('user_id');
             $table->string('category');
             $table->string('image')->nullable();
             $table->text('description');
-            $table->string('visibility');
-            $table->string('status');
+            $table->string('visibility')->default('private');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('researches');
+        Schema::dropIfExists('research');
     }
 };

@@ -137,7 +137,7 @@ const form = useForm({
     subcategory: props.business?.subcategory || '',
     description: props.business?.description || '',
     logo: null,
-    image_id: props.business?.image_id || null,
+    image: props.business?.image || null,
     status: props.business?.status || 'active',
 });
 
@@ -155,7 +155,7 @@ watch(
             form.subcategory = newBusiness.subcategory || '';
             form.description = newBusiness.description || '';
             form.status = newBusiness.status || 'active';
-            form.image_id = newBusiness.image_id || null;
+            form.image_id = newBusiness.image || null;
         }
     },
     { immediate: true }

@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('type');
             $table->string('category');
-            $table->string('subcategory');
+            $table->string('subcategory')->nullable();
             $table->text('description');
             $table->string('logo')->nullable();
             $table->foreignId('image')->nullable();
-            $table->string('status');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

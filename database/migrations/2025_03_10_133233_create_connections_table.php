@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('follow_id');
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

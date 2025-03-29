@@ -28,11 +28,11 @@
             </div>
             <span class="flex-auto">Businesses</span>
             </Link>
-            <Link href="/service" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
+            <Link href="/product" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-cubes text-xl mr-4 text-primary-900 drop-shadow-md"></i>
             </div>
-            <span class="flex-auto">Services/Products</span>
+            <span class="flex-auto">Services</span>
             </Link>
             <Link href="/connection" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">

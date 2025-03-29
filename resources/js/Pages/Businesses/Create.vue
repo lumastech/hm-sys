@@ -128,7 +128,7 @@ const form = useForm({
     subcategory: '',
     description: '',
     logo: null,
-    image_id: null,
+    image: null,
     status: 'active',
 });
 
