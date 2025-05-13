@@ -39,7 +39,7 @@ onBeforeMount(() => {
 <template>
     <div class="relative top-full">
         <div class="fixed md:flex h-full w-full bg-primary-50">
-            <div @click="closeNaveOnMobile" class="overflow-x-auto absolute md:static md:bg-primary-50 bg-black/50 z-50 h-full"
+            <div @click="closeNaveOnMobile" class="overflow-x-auto absolute md:static md:bg-primary-50 bg-black/50 z-50 h-full md:shrink-0"
                 :class="navopen ? 'translate-x-0 md:w-60 w-full md:transition-all md:duration-300 md:ease-in-out' : '-translate-x-full w-0 transition-all delay-300 duration-0 md:delay-0 md:duration-300 md:ease-in-out'">
                 <Sidebar class="transition-all duration-300 ease-in-out"
                     :class="navopen ? 'translate-x-0 w-60' : '-translate-x-full w-0'" />

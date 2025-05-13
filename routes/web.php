@@ -5,15 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\BusinessController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ForumController;
-use App\Http\Controllers\ResearchController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HostelController;
+use App\Http\Controllers\RoomController;
 
 Route::get('/', function () {
     return Inertia::render('Home', [
@@ -23,6 +16,8 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::resource('hostels', HostelController::class);
 
 Route::middleware([
     'auth:sanctum',
@@ -34,23 +29,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('users', UserController::class);
-    Route::get('users/{filter}', [UserController::class, 'index']);
-
-    // Announcements
     Route::resource('announcements', AnnouncementController::class);
-
-    // Business
-    Route::resource('business', BusinessController::class);
-    Route::resource('project', ProjectController::class);
-    Route::resource('contact', ContactController::class);
-    Route::resource('product', ProductController::class);
-    Route::resource('event', EventController::class);
-    Route::resource('forum', ForumController::class);
-    Route::resource('research', ResearchController::class);
-    Route::resource('blog', BlogController::class);
-
-    // Route::resource('image', ImageController::class);
-    // Route::resource('file', FileController::class);
-    // Route::resource('fav', FavoriteController::class);
-    // Route::resource('like', LikeController::class);
+    Route::resource('rooms', RoomController::class);
 });
