@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="event.title" />
 
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

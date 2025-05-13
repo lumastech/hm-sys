@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head title="Research Details" />
         <nav class="text-sm font-semibold mb-6" aria-label="Breadcrumb">
@@ -54,12 +54,12 @@
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>
 import { Head } from '@inertiajs/vue3';
-import DashLayout from '@/Layouts/DashLayout.vue';
+import Dashboard from '@/Layouts/Dashboard.vue';
 
 const props = defineProps({
     research: Object,

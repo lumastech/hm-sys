@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="`Edit ${blog.title}`" />
 
@@ -61,7 +61,7 @@
                 </div>
             </form>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

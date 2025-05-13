@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
         <!-- breadcrumb -->
 
         <Head title="Contacts" />
@@ -180,7 +180,7 @@
         </DialogModal>
 
         <Create :show="createModal" @close="closeModal" />
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>
@@ -195,7 +195,7 @@ onMounted(() => {
 import { ref, watch } from 'vue';
 import { router, Head, Link } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
-import DashLayout from '@/Layouts/DashLayout.vue';
+import Dashboard from '@/Layouts/Dashboard.vue';
 import Create from './Create.vue';
 import DialogModal from '@/Components/DialogModal.vue';
 

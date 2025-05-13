@@ -1,12 +1,11 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Welcome from '@/Components/Welcome.vue';
-import DashLayout from '@/Layouts/DashLayout.vue';
+import Dashboard from '@/Layouts/Dashboard.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <DashLayout>
+    <Dashboard>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 Dashboard
@@ -83,5 +82,5 @@ import { Head } from '@inertiajs/vue3';
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>

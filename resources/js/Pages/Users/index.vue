@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
         <!-- breadcrumb -->
 
         <Head title="Users" />
@@ -129,7 +129,8 @@
                                 </div>
                             </td>
                             <td class="px-4 py-1">
-                                <Link href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                                <Link href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                </Link>
                             </td>
                         </tr>
                     </tbody>
@@ -141,7 +142,7 @@
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 
 </template>
 
@@ -155,8 +156,8 @@ onMounted(() => {
 })
 import { ref, watch } from 'vue';
 import { router, Head, Link } from '@inertiajs/vue3';
-import Pagination from '@/Components/Pagination.vue'; 
-import DashLayout from '@/Layouts/DashLayout.vue';
+import Pagination from '@/Components/Pagination.vue';
+import Dashboard from '@/Layouts/Dashboard.vue';
 
 const props = defineProps({
     users: Object,

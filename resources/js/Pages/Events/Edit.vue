@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="`Edit ${event.title}`" />
 
@@ -93,7 +93,7 @@
                 </div>
             </form>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

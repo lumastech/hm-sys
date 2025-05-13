@@ -1,11 +1,11 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import DashLayout from '@/Layouts/DashLayout.vue';
+import Dashboard from '@/Layouts/Dashboard.vue';
 import CreateTeamForm from '@/Pages/Teams/Partials/CreateTeamForm.vue';
 </script>
 
 <template>
-    <DashLayout title="Create Team">
+    <Dashboard title="Create Team">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 Create Team
@@ -17,5 +17,5 @@ import CreateTeamForm from '@/Pages/Teams/Partials/CreateTeamForm.vue';
                 <CreateTeamForm />
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>

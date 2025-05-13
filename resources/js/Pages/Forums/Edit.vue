@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="`Edit ${forum.title}`" />
 
@@ -69,7 +69,7 @@
                 </div>
             </form>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

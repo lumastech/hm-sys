@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="helpdesk.subject" />
 
@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

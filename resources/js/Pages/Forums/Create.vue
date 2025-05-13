@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head title="Create Forum" />
 
@@ -65,7 +65,7 @@
                 </div>
             </form>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

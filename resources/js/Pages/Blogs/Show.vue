@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="blog.title" />
 
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head title="Create Blog" />
 
@@ -56,7 +56,7 @@
                 </div>
             </form>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

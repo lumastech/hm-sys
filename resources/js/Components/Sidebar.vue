@@ -1,5 +1,5 @@
 <template>
-    <nav class="w-60 overflow-x-auto">
+    <nav class="w-60 bg-primary-50 h-full overflow-y-auto fixed md:static z-50">
         <div class="navbar flex p-2 border-b border-primary-50">
             <img src="../../assets/images/logo.png" alt="sch" class="h-12">
         </div>
@@ -34,12 +34,7 @@
             </div>
             <span class="flex-auto">Services</span>
             </Link>
-            <Link href="/connection" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
-            <div class="w-9">
-                <i class="fa fa-link text-xl mr-4 text-primary-900 drop-shadow-md"></i>
-            </div>
-            <span class="flex-auto">Connections</span>
-            </Link>
+
             <Link href="/project" class="flex py-1 px-2 rounded-md hover:bg-primary-200 transition-all">
             <div class="w-9">
                 <i class="fa fa-tasks text-xl mr-4 text-primary-900 drop-shadow-md"></i>

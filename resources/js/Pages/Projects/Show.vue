@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
 
         <Head :title="project.name" />
 
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </DashLayout>
+    </Dashboard>
 </template>
 
 <script setup>

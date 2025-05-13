@@ -1,5 +1,5 @@
 <template>
-    <DashLayout>
+    <Dashboard>
         <!-- breadcrumb -->
 
         <Head title="Announcements" />
@@ -155,7 +155,7 @@
             <!-- Main modal -->
 
         </div>
-    </DashLayout>
+    </Dashboard>
 
     <DialogModal :show="deleteDialog.show" @close="closeModal">
         <template #title>
@@ -192,7 +192,7 @@ onMounted(() => {
 import { ref, watch, computed } from 'vue';
 import { router, Head, Link } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
-import DashLayout from '@/Layouts/DashLayout.vue';
+import Dashboard from '@/Layouts/Dashboard.vue';
 import Create from './Create.vue';
 import Edit from './Edit.vue';
 import DialogModal from '@/Components/DialogModal.vue';
