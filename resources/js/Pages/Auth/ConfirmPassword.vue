@@ -26,9 +26,10 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Secure Area" />
 
-    <AuthenticationCard>
+    <AuthenticationCard class="bg-gradient-to-r from-indigo-700/50 to-teal-100/30">
         <template #logo>
             <AuthenticationCardLogo />
         </template>
@@ -40,16 +41,8 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    ref="passwordInput"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="current-password"
-                    autofocus
-                />
+                <TextInput id="password" ref="passwordInput" v-model="form.password" type="password"
+                    class="mt-1 block w-full" required autocomplete="current-password" autofocus />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 

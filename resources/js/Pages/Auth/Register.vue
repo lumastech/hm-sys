@@ -28,7 +28,7 @@ const submit = () => {
 
     <Head title="Register" />
 
-    <AuthenticationCard>
+    <AuthenticationCard class="bg-gradient-to-r from-indigo-700/50 to-teal-100/30">
         <template #logo>
             <AuthenticationCardLogo />
         </template>

@@ -2,7 +2,7 @@
     <div class="p-4 bg-white shadow-md rounded-lg">
         <!-- Hostel image -->
         <div class="flex items-center mb-4">
-            <img src="../../../assets/images/img_1.png" alt="Hostel Image" class="aspect-video w-full rounded-md" />
+            <img src="../../../assets/images/img_2.jpg" alt="Hostel Image" class="aspect-video w-full rounded-md" />
         </div>
 
         <!-- Hostel details -->
@@ -36,7 +36,8 @@
         <div class="mt-6">
             <h2 class="text-xl font-semibold mb-2">Rooms</h2>
             <div v-if="hostel.rooms && hostel.rooms.length" class="text-sm">
-                <div v-for="room in hostel.rooms" :key="room.id" class="flex shadow px-2 py-1 rounded mb-2 cursor-pointer hover:bg-primary-500 hover:text-white transition">
+                <div v-for="room in hostel.rooms" :key="room.id"
+                    class="flex shadow px-2 py-1 rounded mb-2 cursor-pointer bg-gradient-to-r from-indigo-700/50 to-teal-100/30 hover:bg-primary-500 text-black hover:text-white transition">
                     <span class="font-semibold">R:{{ room.room_number }}</span>
                     <span class="flex-auto px-2 text-center">B: {{ room.capacity }}</span>
                     <span class="w-2 h-2 rounded-full self-center mx-3 bg-green-500"></span>
