@@ -15,7 +15,7 @@
                         student
                         boarding experiences. From room booking to fee payments — everything, digitized.</p>
                     <a href="#features"
-                        class="px-6 py-2 bg-gradient-to-l from-indigo-700/80 to-teal-700 shadow hpver:shadow-xl text-white font-semibold rounded hover:bg-primary-500 transition">Explore
+                        class="px-6 py-2 bg-gradient-to-r from-pink-100 to-teal-100/30 shadow hpver:shadow-xl text-primary-700 font-semibold rounded hover:bg-primary-500 transition">Explore
                         Features</a>
                 </div>
                 <img src="../../assets/images/phone_map.png" alt="Digital Map"
@@ -27,17 +27,17 @@
     <section id="features" class="py-16 bg-white text-center text-secondary-500">
         <h2 class="text-3xl font-bold mb-10 text-primary-500">Why Choose Us?</h2>
         <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto px-4 text-secondary-500">
-            <div class="shadow p-6 rounded bg-gradient-to-r from-indigo-400/10 to-teal-100/30">
+            <div class="shadow p-6 rounded bg-gradient-to-r from-indigo-400/10 to-teal-100/30 hover:scale-105 transition duration-300">
                 <i class="fa-solid fa-bed text-4xl text-primary-500"></i>
                 <h3 class="font-semibold mb-2">Room Management</h3>
                 <p class="text-sm">Easily assign rooms, track availability, and manage capacities.</p>
             </div>
-            <div class="shadow p-6 rounded bg-gradient-to-r from-indigo-400/10 to-teal-100/30">
+            <div class="shadow p-6 rounded bg-gradient-to-r from-indigo-400/10 to-teal-100/30 hover:scale-105 transition duration-300">
                 <i class="fa-solid fa-graduation-cap text-4xl text-primary-500"></i>
                 <h3 class="font-semibold mb-2">Student Profiles</h3>
                 <p class="text-sm">Manage student details, documents, payments, and more in one place.</p>
             </div>
-            <div class="shadow p-6 rounded bg-gradient-to-r from-indigo-400/10 to-teal-100/30">
+            <div class="shadow p-6 rounded bg-gradient-to-r from-indigo-400/10 to-teal-100/30 hover:scale-105 transition duration-300">
                 <i class="fa-solid fa-credit-card text-4xl text-primary-500"></i>
                 <div class="text-4xl mb-2">{{ icon }}</div>
                 <h3 class="font-semibold mb-2">Online Payments</h3>
@@ -96,9 +96,10 @@
                         class="w-full p-2 border border-primary-500 rounded"></textarea>
                     <div class="flex gap-4 justify-center">
                         <button type="submit"
-                            class="bg-primary-100 hpver:shadow-xl text-primary-700 shadow px-6 py-2 rounded hover:bg-teal-500 hover:text-white transition">Send
+                            class="bg-gradient-to-r from-pink-400/10 to-teal-100/30 hpver:shadow-xl text-primary-700 shadow px-6 py-2 rounded hover:bg-teal-500 hover:text-white transition">Send
                             Message</button>
-                        <button type="reset" class="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400 hover:text-white">Reset</button>
+                        <button type="reset"
+                            class="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400 hover:text-white">Reset</button>
                     </div>
                 </form>
             </div>
