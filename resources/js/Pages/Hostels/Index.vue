@@ -20,13 +20,13 @@
         <div class="sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                 <div class="col-span-1 md:col-span-4">
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div class="relative overflow-x-auto shadow sm:rounded-lg">
                         <!-- Action Bar -->
                         <div class="flex justify-between items-center p-4 bg-white dark:bg-gray-900">
                             <input v-model="filters.search" type="text" placeholder="Search for hostels"
-                                class="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" />
+                                class="block p-2 text-sm text-gray-900 border border-primary-300 rounded-lg w-80 bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" />
                             <button @click="createModal = true"
-                                class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700">
+                                class="text-white bg-primary-400 hover:bg-primary-600 font-medium rounded text-sm px-2 py-1 dark:bg-primary-600 dark:hover:bg-primary-700">
                                 <i class="fa fa-plus"></i> New Hostel
                             </button>
                         </div>
@@ -36,21 +36,21 @@
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
-                                    <th class="px-6 py-3">Name</th>
-                                    <th class="px-6 py-3">Address</th>
-                                    <th class="px-6 py-3">Vendor</th>
-                                    <th class="px-6 py-3">Rooms</th>
-                                    <th class="px-6 py-3">Action</th>
+                                    <th class="px-4 py-3">Name</th>
+                                    <th class="px-4 py-3">Address</th>
+                                    <th class="px-4 py-3">Vendor</th>
+                                    <th class="px-4 py-3">Rooms</th>
+                                    <th class="px-4 py-3">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="hostel in hostels.data" :key="hostel.id" @click="handleShow(hostel)"
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer">
-                                    <td class="px-6 py-4">{{ hostel.name }}</td>
-                                    <td class="px-6 py-4">{{ hostel.address }}</td>
-                                    <td class="px-6 py-4">{{ hostel.vendor?.name }}</td>
-                                    <td class="px-6 py-4">{{ hostel.rooms?.length || 0 }}</td>
-                                    <td class="px-6 py-4">
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-primary-50 dark:hover:bg-gray-600 cursor-pointer">
+                                    <td class="px-4 py-1">{{ hostel.name }}</td>
+                                    <td class="px-4 py-1">{{ hostel.address }}</td>
+                                    <td class="px-4 py-1">{{ hostel.vendor?.name }}</td>
+                                    <td class="px-4 py-1">{{ hostel.rooms?.length || 0 }}</td>
+                                    <td class="px-4 py-1">
                                         <div class="flex space-x-2">
                                             <button @click="handleEdit(hostel)" class="text-blue-600"><i
                                                     class="fa fa-pen-to-square"></i></button>

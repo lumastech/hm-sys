@@ -47,8 +47,8 @@ onBeforeMount(() => {
             <main class="flex-auto">
                 <div class="navbar p-2 h-16 border-primary-50 flex">
                     <button @click="navopen = !navopen"
-                        class="inline mr-2 text-teal-700 self-center px-2 hover:bg-primary-100 rounded transition">
-                        <i class="fas fa-bars text-xl md:text-3xl"></i>
+                        class="inline mr-2 text-teal-700 h-full self-center px-2 hover:bg-primary-100 rounded transition">
+                        <i class="fas fa-bars text-xl "></i>
                     </button>
                     <Navbar class="flex-auto" />
                 </div>

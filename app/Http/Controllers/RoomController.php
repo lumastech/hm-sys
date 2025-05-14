@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class RoomController extends Controller
 {
@@ -46,7 +47,13 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        // Fetch the room details from the database
+        $roomDetails = Room::with(['hostel', 'beds'])->findOrFail($room->id);
+
+        // Pass the room details to the Inertia view
+        return Inertia::render('Rooms/Show', [
+            'room' => $roomDetails,
+        ]);
     }
 
     /**

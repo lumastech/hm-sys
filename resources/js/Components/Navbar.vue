@@ -4,7 +4,7 @@
             <!-- left navbar -->
             <div class="flex">
                 <!-- search bar -->
-                <div class="relative text-gray-600">
+                <div class="relative text-gray-600 self-center">
                     <input type="search" name="serch" placeholder="Search products..."
                         class="bg-primary-50 h-10 w-full xl:w-64 px-5 rounded-lg border-primary-400 text-sm focus:outline-none">
                     <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
